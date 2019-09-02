@@ -1,0 +1,30 @@
+[
+    {
+        "name" : "RiFa",
+        "age" : "22",
+        "height" : "150",
+        "gender" : "Female",
+        "haircolor" : "black"
+    },
+    {
+        "name" : "FaRi",
+        "age" : "22",
+        "height" : "167",
+        "gender" : "Male",
+        "haircolor" : "black"
+    },
+    {
+        "name" : "Son",
+        "age" : "1",
+        "height" : "50",
+        "gender" : "Male",
+        "haircolor" : "black"
+    },
+    {
+        "name" : "Daughter",
+        "age" : "2",
+        "height" : "60",
+        "gender" : "Female",
+        "haircolor" : "black"
+    }
+]
