@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 void main(){
   runApp(
@@ -20,7 +21,7 @@ class HomePage extends StatelessWidget{
       color: Colors.indigo,
       alignment: Alignment.center,
 
-      child: new Column(
+      /*child: new Column(
         // https://stackoverflow.com/questions/53850149/flutter-crossaxisalignment-vs-mainaxisalignment
         mainAxisAlignment: MainAxisAlignment.center,
 
@@ -38,6 +39,26 @@ class HomePage extends StatelessWidget{
             style: new TextStyle(color: Colors.white,
               fontSize: 18.0,
             ),
+          )
+        ],
+      ),*/
+
+      child: new Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[
+          new Text("FIRST ITEM",
+            textDirection: TextDirection.ltr,
+            style: new TextStyle(fontSize: 18.0),
+          ),
+          const Expanded(
+              child: const Text("FIRST ITEM",
+                textDirection: TextDirection.ltr,
+                style: TextStyle(fontSize: 25.0),
+              )
+          ),
+          new Text("FIRST ITEM",
+            textDirection: TextDirection.ltr,
+            style: new TextStyle(fontSize: 18.0),
           )
         ],
       ),
