@@ -22,10 +22,46 @@ class HomePage extends StatelessWidget{
           ),
           new IconButton(
             icon: new Icon(Icons.search),
-            onPressed: null,
+            onPressed: () => {},
           )
         ],
-      ), 
+      ),
+
+      // Other Properties
+      backgroundColor: Colors.white,
+      body: new Container(
+        alignment: Alignment.center,
+        child: new Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            new Text("Hello There!",
+              style: TextStyle(
+                color: Colors.black
+              ),
+            ),
+            new Text("Hello There!",
+              style: TextStyle(
+                  color: Colors.black
+              ),
+            ),
+            new Text("Hello There!",
+              style: TextStyle(
+                  color: Colors.black
+              ),
+            ),
+            new Text("Hello There!",
+              style: TextStyle(
+                  color: Colors.black
+              ),
+            ),
+            // Tappable widget
+            new InkWell(
+              child: new Text("BUTTON!"),
+              onTap: () => debugPrint("BUTTON TAPED!"),
+            )
+          ],
+        ),
+      ),
     );
   }
 }
