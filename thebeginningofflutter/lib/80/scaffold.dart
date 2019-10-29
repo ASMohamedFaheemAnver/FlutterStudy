@@ -62,6 +62,16 @@ class HomePage extends StatelessWidget{
           ],
         ),
       ),
+      bottomNavigationBar: new BottomNavigationBar(
+          items: [
+            new BottomNavigationBarItem(icon: new Icon(Icons.add),
+            title: new Text("ADD")
+            ),
+            new BottomNavigationBarItem(icon: new Icon(Icons.call_missed),
+              title: new Text("MISSED CALL")
+            )
+          ]
+      ),
     );
   }
 }
