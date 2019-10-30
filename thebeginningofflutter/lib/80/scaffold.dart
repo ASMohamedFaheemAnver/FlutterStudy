@@ -18,7 +18,7 @@ class HomePage extends StatelessWidget{
         actions: <Widget>[
           new IconButton(
               icon: new Icon(Icons.send), 
-              onPressed: () => debugPrint("Icon tapped!")
+              onPressed: () => debugPrint("ICON TAPPED!")
           ),
           new IconButton(
             icon: new Icon(Icons.search),
@@ -62,6 +62,14 @@ class HomePage extends StatelessWidget{
           ],
         ),
       ),
+
+      floatingActionButton: new FloatingActionButton(
+        onPressed: () => debugPrint("FLOATING ACTION BUTTON!"),
+        backgroundColor: Colors.lightBlue,
+        tooltip: 'Going UP!',
+        child: new Icon(Icons.call_missed),
+      ),
+
       bottomNavigationBar: new BottomNavigationBar(
           items: [
             new BottomNavigationBarItem(icon: new Icon(Icons.add),
