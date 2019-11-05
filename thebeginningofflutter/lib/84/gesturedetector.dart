@@ -11,8 +11,10 @@ class HomePage extends StatelessWidget{
       title: "THE GESTURE DETECTOR",
       home: new Scaffold(
         // https://stackoverflow.com/questions/51304568/scaffold-of-called-with-a-context-that-does-not-contain-a-scaffold
+        // https://stackoverflow.com/questions/52088889/can-someone-explain-to-me-what-the-builder-class-does-in-flutter
         body: new Builder(
-          builder: (context) => Center(
+          builder: (BuildContext context) => Center(
+          // We are getting scaffold context from builder class
             child: new GestureDetector(
               onTap: (){
                 final snackBar = new SnackBar(content: new Text("GESTURE!"));
