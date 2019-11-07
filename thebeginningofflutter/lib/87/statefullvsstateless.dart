@@ -47,8 +47,13 @@ class HomePageState extends State<HomePage>{
             ),
 
             new Expanded(
+              // https://stackoverflow.com/questions/49991444/create-a-rounded-button-button-with-border-radius-in-flutter
                 child: new Center(
                   child: new FlatButton(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: new BorderRadius.circular(5.0),
+                      side: BorderSide(color: Colors.pink)
+                    ),
                       color: Colors.green,
                       onPressed: _rainMoney,
                       child: new Text("BUTTON!")
