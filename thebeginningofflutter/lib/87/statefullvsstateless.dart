@@ -14,6 +14,14 @@ class HomePage extends StatefulWidget{
 }
 
 class HomePageState extends State<HomePage>{
+
+  int _moneyCounter = 0;
+  void _rainMoney(){
+    setState(() {
+      _moneyCounter += 100;
+    });
+  }
+
   @override
   Widget build(BuildContext context){
     return Scaffold(
@@ -29,7 +37,7 @@ class HomePageState extends State<HomePage>{
 
             new Expanded(
                 child: new Center(
-                  child: new Text("MONEY",
+                  child: new Text('\$$_moneyCounter',
                     style: new TextStyle(
                       color: Colors.green,
                       fontSize: 28.0,
@@ -42,7 +50,7 @@ class HomePageState extends State<HomePage>{
                 child: new Center(
                   child: new FlatButton(
                       color: Colors.green,
-                      onPressed: () => {},
+                      onPressed: _rainMoney,
                       child: new Text("BUTTON!")
                   ),
                 )
