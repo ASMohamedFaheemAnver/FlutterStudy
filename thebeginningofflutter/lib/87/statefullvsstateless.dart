@@ -17,23 +17,38 @@ class HomePageState extends State<HomePage>{
   @override
   Widget build(BuildContext context){
     return Scaffold(
-      body: new Builder(
-          builder: (context) => Center(
-            child: new GestureDetector(
-              onTap: (){
-                final snackbar = new SnackBar(content: new Text("THE GESTURE!"));
-                Scaffold.of(context).showSnackBar(snackbar);
-              },
-
-              child: new Container(
-                padding: EdgeInsets.all(19.0),
-                decoration: new BoxDecoration(
-                    color: Colors.lightBlue
-                ),
-                child: new Text("BUTTON!"),
-              ),
+      body: new Container(
+        child: new Column(
+          children: <Widget>[
+            new Padding(
+                padding: EdgeInsets.all(20.0),
             ),
-          )
+            new Center(
+              child: new Text("GET RAIN"),
+            ),
+
+            new Expanded(
+                child: new Center(
+                  child: new Text("MONEY",
+                    style: new TextStyle(
+                      color: Colors.green,
+                      fontSize: 28.0,
+                    ),
+                  ),
+                )
+            ),
+
+            new Expanded(
+                child: new Center(
+                  child: new FlatButton(
+                      color: Colors.green,
+                      onPressed: () => {},
+                      child: new Text("BUTTON!")
+                  ),
+                )
+            )
+          ],
+        ),
       ),
     );
   }
