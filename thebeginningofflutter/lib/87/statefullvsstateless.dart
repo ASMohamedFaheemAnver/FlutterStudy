@@ -16,9 +16,13 @@ class HomePage extends StatefulWidget{
 class HomePageState extends State<HomePage>{
 
   int _moneyCounter = 0;
+  bool isNot = true;
   void _rainMoney(){
     setState(() {
       _moneyCounter += 100;
+      if(_moneyCounter>1000){
+        isNot = false;
+      }
     });
   }
 
@@ -39,7 +43,7 @@ class HomePageState extends State<HomePage>{
                 child: new Center(
                   child: new Text('\$$_moneyCounter',
                     style: new TextStyle(
-                      color: Colors.green,
+                      color: isNot ? Colors.green : Colors.red,
                       fontSize: 28.0,
                     ),
                   ),
