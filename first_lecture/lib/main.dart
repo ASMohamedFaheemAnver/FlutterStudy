@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: MyHomePage(title: 'Flutter Demo at Kelaniya'),
     );
   }
 }
@@ -45,8 +45,9 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
+  bool isVisible = false;
 
-  void _incrementCounter() {
+  void _incrementCounter(context) {
     setState(() {
       // This call to setState tells the Flutter framework that something has
       // changed in this State, which causes it to rerun the build method below
@@ -54,6 +55,12 @@ class _MyHomePageState extends State<MyHomePage> {
       // _counter without calling setState(), then the build method would not be
       // called again, and so nothing would appear to happen.
       _counter++;
+      Scaffold.of(context).showSnackBar(new SnackBar(content: new Text("YOU HAVE CLICKED ME!")));
+      if(!isVisible){
+        isVisible = true;
+      } else if(isVisible){
+        isVisible = false;
+      }
     });
   }
 
@@ -71,12 +78,13 @@ class _MyHomePageState extends State<MyHomePage> {
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
       ),
+
       body: Center(
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
         child: Column(
           // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
+          // arranges them verti_incrementCounter(context, isVisible)cally. By default, it sizes itself to fit its
           // children horizontally, and tries to be as tall as its parent.
           //
           // Invoke "debug painting" (press "p" in the console, choose the
@@ -91,21 +99,32 @@ class _MyHomePageState extends State<MyHomePage> {
           // horizontal).
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.display1,
-            ),
+//            Text(
+//              'You have pushed the button this many times:',
+//            ),
+//            Text(
+//              '$_counter',
+//              style: Theme.of(context).textTheme.display1,
+//            ),
+            Visibility(
+              visible: isVisible,
+              child: Image.asset('assets/sample.png',
+                width: 400, height: 400,
+              ),
+            )
+
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      floatingActionButton: Builder(
+        builder: (context)=>
+            FloatingActionButton(
+              // We need to ()=>function(parameter) to send context
+              onPressed: ()=>_incrementCounter(context),
+              tooltip: 'Increment',
+              child: Icon(Icons.add),
+            ),
+      )// This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
