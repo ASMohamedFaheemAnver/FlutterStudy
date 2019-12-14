@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/calculatorapp/calculatorapp.iml" filepath="$PROJECT_DIR$/calculatorapp/calculatorapp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/chatapp/chatapp.iml" filepath="$PROJECT_DIR$/chatapp/chatapp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/usingmaterialcomponents/android/app/src/debug/debug.iml" filepath="$PROJECT_DIR$/usingmaterialcomponents/android/app/src/debug/debug.iml" />
+      <module fileurl="file://$PROJECT_DIR$/handlinggesture/handlinggesture.iml" filepath="$PROJECT_DIR$/handlinggesture/handlinggesture.iml" />
+      <module fileurl="file://$PROJECT_DIR$/introtowidgets/introtowidgets.iml" filepath="$PROJECT_DIR$/introtowidgets/introtowidgets.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jsonflutter/jsonflutter.iml" filepath="$PROJECT_DIR$/jsonflutter/jsonflutter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/loginapp/loginapp.iml" filepath="$PROJECT_DIR$/loginapp/loginapp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/thebeginningofflutter/android/app/src/main/main.iml" filepath="$PROJECT_DIR$/thebeginningofflutter/android/app/src/main/main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/usingmaterialcomponents/android/app/src/profile/profile.iml" filepath="$PROJECT_DIR$/usingmaterialcomponents/android/app/src/profile/profile.iml" />
+      <module fileurl="file://$PROJECT_DIR$/thebeginning/thebeginning.iml" filepath="$PROJECT_DIR$/thebeginning/thebeginning.iml" />
+      <module fileurl="file://$PROJECT_DIR$/thebeginningofflutter/thebeginningofflutter.iml" filepath="$PROJECT_DIR$/thebeginningofflutter/thebeginningofflutter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/usingmaterialcomponents/usingmaterialcomponents.iml" filepath="$PROJECT_DIR$/usingmaterialcomponents/usingmaterialcomponents.iml" />
+    </modules>
+  </component>
+</project>
