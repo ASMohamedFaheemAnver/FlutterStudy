@@ -1,17 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class HomePage extends StatefulWidget{
-  @override
-  State<StatefulWidget> createState() {
-    return HomePageState();
-  }
-//  @override
-//  HomePageState createState() => HomePageState();
-}
-
-class HomePageState extends State<HomePage>{
-  String x = "Demo!";
+class HomePage extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
@@ -23,15 +13,11 @@ class HomePageState extends State<HomePage>{
         ),
         body: new Column(
           children: <Widget>[
-            new Text(x),
+            new Text("1"),
             new Center(
               child: new RaisedButton(
-                child: new Text("I AM A BUTTON"),
-                onPressed: (){
-                  setState(() {
-                    x = "You clicked the button!";
-                  });
-                },
+                child: new Text("I AM A BUgger"),
+                onPressed: null,
               ),
             ),
           ],
@@ -39,5 +25,4 @@ class HomePageState extends State<HomePage>{
       ),
     );
   }
-
 }
