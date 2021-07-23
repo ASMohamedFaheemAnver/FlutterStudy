@@ -39,42 +39,39 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: BlocListener<CounterCubit, CounterState>(
-        listener: (context, state) {
-          if (state.wasIncremented) {
-            ScaffoldMessenger.of(context)
-                .showSnackBar(SnackBar(content: Text("Incremented")));
-          } else {
-            ScaffoldMessenger.of(context)
-                .showSnackBar(SnackBar(content: Text("Decremented")));
-          }
-        },
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Text("Cubit State Below"),
-              BlocBuilder<CounterCubit, CounterState>(
-                  builder: (context, state) {
-                return Text("${state.counterValue}");
-              }),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  ElevatedButton(
-                      onPressed: () {
-                        BlocProvider.of<CounterCubit>(context).increment();
-                      },
-                      child: Icon(Icons.add)),
-                  ElevatedButton(
-                      onPressed: () {
-                        BlocProvider.of<CounterCubit>(context).descrement();
-                      },
-                      child: Icon(Icons.remove))
-                ],
-              )
-            ],
-          ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            BlocConsumer<CounterCubit, CounterState>(
+                listener: (context, state) {
+              if (state.wasIncremented) {
+                ScaffoldMessenger.of(context)
+                    .showSnackBar(SnackBar(content: Text("Incremented")));
+              } else {
+                ScaffoldMessenger.of(context)
+                    .showSnackBar(SnackBar(content: Text("Decremented")));
+              }
+            }, builder: (context, state) {
+              return Text("${state.counterValue}");
+            }),
+            Text("Cubit State Below"),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                ElevatedButton(
+                    onPressed: () {
+                      BlocProvider.of<CounterCubit>(context).increment();
+                    },
+                    child: Icon(Icons.add)),
+                ElevatedButton(
+                    onPressed: () {
+                      BlocProvider.of<CounterCubit>(context).descrement();
+                    },
+                    child: Icon(Icons.remove))
+              ],
+            )
+          ],
         ),
       ),
     );
