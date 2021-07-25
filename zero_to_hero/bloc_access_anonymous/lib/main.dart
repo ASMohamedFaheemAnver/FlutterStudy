@@ -10,18 +10,17 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return BlocProvider<CounterCubit>(
-      create: (context) => CounterCubit(),
-      child: MaterialApp(
-        title: 'Cubit',
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-        ),
-        home: HomeScreen(
-          title: 'Provider',
-          color: Colors.blueAccent,
-        ),
+    return MaterialApp(
+      title: 'Cubit',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
       ),
+      home: BlocProvider<CounterCubit>(
+          create: (context) => CounterCubit(),
+          child: HomeScreen(
+            title: 'Provider',
+            color: Colors.blueAccent,
+          )),
     );
   }
 }
