@@ -57,7 +57,7 @@ class _SecondScreenState extends State<SecondScreen> {
               MaterialButton(
                 color: widget.color,
                 onPressed: () {},
-                child: Text("Second Screen"),
+                child: Text("Thrid Screen"),
               )
             ],
           ),
