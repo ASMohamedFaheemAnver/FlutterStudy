@@ -1,0 +1,13 @@
+{
+  "name": "todo",
+  "version": "1.0.0",
+  "description": "Fake server",
+  "author": "A.S.Mohamed Faheem Anver",
+  "license": "MIT",
+  "scripts": {
+    "start": "json-server --watch db.json --host 192.168.8.110"
+  },
+  "dependencies": {
+    "json-server": "^0.16.3"
+  }
+}

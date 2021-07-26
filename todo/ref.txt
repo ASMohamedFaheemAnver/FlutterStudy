@@ -1,0 +1,2 @@
+# To access outside localhost
+json-server --watch db.json --host ip-address
