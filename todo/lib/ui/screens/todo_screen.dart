@@ -71,13 +71,16 @@ class ToDoScreen extends StatelessWidget {
   }
 
   Widget completionIndicator(ToDo toDo) {
-    return Container(
-      width: 20,
-      height: 20,
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(50),
-          border: Border.all(
-              width: 4, color: toDo.isCompleted ? Colors.green : Colors.red)),
-    );
+    return !toDo.isLoading
+        ? Container(
+            width: 20,
+            height: 20,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(50),
+                border: Border.all(
+                    width: 4,
+                    color: toDo.isCompleted ? Colors.green : Colors.red)),
+          )
+        : Container(width: 20, height: 20, child: CircularProgressIndicator());
   }
 }

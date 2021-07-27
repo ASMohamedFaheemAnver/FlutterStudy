@@ -19,12 +19,17 @@ class ToDoCubit extends Cubit<ToDoState> {
   }
 
   void changeCompletion(ToDo toDo) async {
-    final isChanged =
-        await toDoRepository.changeCompletion(toDo.id, !toDo.isCompleted);
-    if (isChanged) {
-      toDo.isCompleted = !toDo.isCompleted;
-      updateToDoList();
-    }
+    toDo.isLoading = true;
+    updateToDoList();
+    Timer(Duration(seconds: 2), () async {
+      final isChanged =
+          await toDoRepository.changeCompletion(toDo.id, !toDo.isCompleted);
+      if (isChanged) {
+        toDo.isCompleted = !toDo.isCompleted;
+        toDo.isLoading = false;
+        updateToDoList();
+      }
+    });
   }
 
   void updateToDoList() {
