@@ -43,26 +43,29 @@ class ToDoScreen extends StatelessWidget {
   }
 
   Widget toDo(ToDo toDo, BuildContext context) {
-    return Dismissible(
-      key: Key(toDo.id.toString()),
-      background: Container(
-        color: Colors.indigo,
-      ),
-      child: Container(
-        width: MediaQuery.of(context).size.width,
-        padding: EdgeInsets.symmetric(horizontal: 15, vertical: 20),
-        decoration: BoxDecoration(
-            color: Colors.white,
-            border: Border(bottom: BorderSide(color: Colors.green))),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [Text(toDo.todoMessage), completionIndicator(toDo)],
+    return InkWell(
+      child: Dismissible(
+        key: Key(toDo.id.toString()),
+        background: Container(
+          color: Colors.indigo,
         ),
+        child: Container(
+          width: MediaQuery.of(context).size.width,
+          padding: EdgeInsets.symmetric(horizontal: 15, vertical: 20),
+          decoration: BoxDecoration(
+              color: Colors.white,
+              border: Border(bottom: BorderSide(color: Colors.green))),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [Text(toDo.todoMessage), completionIndicator(toDo)],
+          ),
+        ),
+        confirmDismiss: (_) async {
+          BlocProvider.of<ToDoCubit>(context).changeCompletion(toDo);
+          return false;
+        },
       ),
-      confirmDismiss: (_) async {
-        BlocProvider.of<ToDoCubit>(context).changeCompletion(toDo);
-        return false;
-      },
+      onTap: () => Navigator.of(context).pushNamed(EDIT_TODO_ROUTE),
     );
   }
 

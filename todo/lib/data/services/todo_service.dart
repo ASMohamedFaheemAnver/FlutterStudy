@@ -9,6 +9,7 @@ class ToDoService {
       final res = await get(Uri.parse(baseUrl + "/todos"));
       return jsonDecode(res.body) as List;
     } catch (e) {
+      // print(e);
       return [];
     }
   }
@@ -19,7 +20,18 @@ class ToDoService {
           body: patchedToDo);
       return true;
     } catch (e) {
+      // print(e);
       return false;
+    }
+  }
+
+  Future<Map?> addToDo(Map<String, String> toDoData) async {
+    try {
+      final res = await post(Uri.parse(baseUrl + "/todos"), body: toDoData);
+      return jsonDecode(res.body) as Map;
+    } catch (e) {
+      // print(e);
+      return null;
     }
   }
 }

@@ -32,4 +32,13 @@ class ToDoCubit extends Cubit<ToDoState> {
     if (currentState is ToDoLoaded)
       emit(ToDoLoaded(toDoList: currentState.toDoList));
   }
+
+  void addToDo(ToDo toDo) {
+    final currentState = state;
+    if (currentState is ToDoLoaded) {
+      final toDoList = currentState.toDoList;
+      toDoList.add(toDo);
+      emit(ToDoLoaded(toDoList: toDoList));
+    }
+  }
 }

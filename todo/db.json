@@ -1,16 +1,9 @@
 {
   "todos": [
     {
-      "is_completed": true,
-      "todo_message": "This is next level",
-      "id": 1,
-      "isCompleted": "true"
-    },
-    {
-      "is_completed": false,
-      "todo_message": "Humans are dump as hell except me",
-      "id": 2,
-      "isCompleted": "false"
+      "is_completed": "true",
+      "todo_message": "Every people has feeling that we don't understand!",
+      "id": 1
     }
   ]
 }

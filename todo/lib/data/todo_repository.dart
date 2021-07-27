@@ -10,7 +10,16 @@ class ToDoRepository {
   }
 
   Future<bool> changeCompletion(int id, bool isCompleted) async {
-    final patchedToDo = {"isCompleted": isCompleted.toString()};
+    final patchedToDo = {"is_completed": isCompleted.toString()};
     return await toDoService.patchToDo(id, patchedToDo);
+  }
+
+  Future<ToDo?> addToDo(String message) async {
+    final toDoData = {
+      "is_completed": false.toString(),
+      "todo_message": message
+    };
+    final toDo = await toDoService.addToDo(toDoData);
+    return toDo != null ? ToDo.fromJson(toDo) : null;
   }
 }
