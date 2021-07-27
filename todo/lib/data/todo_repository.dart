@@ -22,4 +22,13 @@ class ToDoRepository {
     final toDo = await toDoService.addToDo(toDoData);
     return toDo != null ? ToDo.fromJson(toDo) : null;
   }
+
+  Future<bool> deleteToDo(int id) async {
+    return await toDoService.deleteToDo(id);
+  }
+
+  Future<bool> updateToDo(int id, String message) async {
+    final patchedToDo = {"todo_message": message};
+    return await toDoService.updateToDo(id, patchedToDo);
+  }
 }

@@ -65,7 +65,8 @@ class ToDoScreen extends StatelessWidget {
           return false;
         },
       ),
-      onTap: () => Navigator.of(context).pushNamed(EDIT_TODO_ROUTE),
+      onTap: () =>
+          Navigator.of(context).pushNamed(EDIT_TODO_ROUTE, arguments: toDo),
     );
   }
 

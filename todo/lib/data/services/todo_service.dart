@@ -34,4 +34,25 @@ class ToDoService {
       return null;
     }
   }
+
+  Future<bool> deleteToDo(int id) async {
+    try {
+      await delete(Uri.parse(baseUrl + "/todos/" + id.toString()));
+      return true;
+    } catch (e) {
+      // print(e);
+      return false;
+    }
+  }
+
+  Future<bool> updateToDo(int id, Map<String, String> patchedToDo) async {
+    try {
+      await patch(Uri.parse(baseUrl + "/todos/" + id.toString()),
+          body: patchedToDo);
+      return true;
+    } catch (e) {
+      // print(e);
+      return false;
+    }
+  }
 }
