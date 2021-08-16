@@ -77,39 +77,30 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
         body: LayoutBuilder(builder: (context, constraints) {
           if (items.isNotEmpty) {
-            return Stack(
+            return Column(
               children: [
-                ListView.separated(
-                    controller: _scrollController,
-                    itemBuilder: (context, index) {
-                      if (index < items.length) {
-                        return ListTile(title: Text(items[index]));
-                      }
-                      return Container(
-                        width: constraints.maxWidth,
-                        child: Center(
-                          child: Text("No More Item To Load!"),
-                        ),
-                      );
-                    },
-                    separatorBuilder: (context, index) {
-                      return Divider(
-                        height: 1,
-                      );
-                    },
-                    itemCount: items.length + (allLoaded ? 1 : 0)),
-                if (loading)
-                  Positioned(
-                    left: 0,
-                    bottom: 0,
-                    child: Container(
-                      height: 80,
-                      width: constraints.maxWidth,
-                      child: Center(
-                        child: CircularProgressIndicator(),
-                      ),
-                    ),
-                  )
+                Flexible(
+                  child: ListView.separated(
+                      controller: _scrollController,
+                      itemBuilder: (context, index) {
+                        if (index < items.length) {
+                          return ListTile(title: Text(items[index]));
+                        }
+                        return Container(
+                          width: constraints.maxWidth,
+                          child: Center(
+                            child: Text("No More Item To Load!"),
+                          ),
+                        );
+                      },
+                      separatorBuilder: (context, index) {
+                        return Divider(
+                          height: 1,
+                        );
+                      },
+                      itemCount: items.length + (allLoaded ? 1 : 0)),
+                ),
+                if (loading) CircularProgressIndicator(),
               ],
             );
           }
