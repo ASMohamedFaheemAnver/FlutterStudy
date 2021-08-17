@@ -12,8 +12,11 @@ class ListViewRefreshTemplate extends StatefulWidget {
 
 class _ListViewRefreshTemplateState extends State<ListViewRefreshTemplate> {
   List<int> data = [];
+  GlobalKey<RefreshIndicatorState> refreshGlobalKey =
+      GlobalKey<RefreshIndicatorState>();
 
   Future generateData() async {
+    refreshGlobalKey.currentState?.show();
     await Future.delayed(Duration(seconds: 1));
     final listData = List.generate(50, (index) => Random().nextInt(100));
     setState(() {
@@ -30,12 +33,22 @@ class _ListViewRefreshTemplateState extends State<ListViewRefreshTemplate> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        actions: [
+          IconButton(
+              onPressed: () {
+                generateData();
+              },
+              icon: Icon(Icons.refresh))
+        ],
+      ),
       body: SafeArea(
         child: data.isEmpty
             ? Center(
                 child: CircularProgressIndicator(),
               )
             : PullToRefreshWidget(
+                refreshGlobalKey: refreshGlobalKey,
                 onRefresh: generateData,
                 child: ListView.builder(
                     shrinkWrap: true,
