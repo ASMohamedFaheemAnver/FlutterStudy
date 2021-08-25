@@ -1,6 +1,5 @@
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:notification/services/local_notification_service.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -30,12 +29,18 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Future<void> componentDidMount() async {
     await FirebaseMessaging.instance.getToken();
+
+    // Terminated means, Not even in task bar and User tabs on notification
+    // When application in background and in terminated state and user taps on message
+    // On message will work probably when this stream was called
     FirebaseMessaging.instance.getInitialMessage().then((message) {
       final routeNameFromMessage = message?.data["route"];
       if (routeNameFromMessage != null) {
         Navigator.of(context).pushNamed(routeNameFromMessage);
       }
     });
+
+    // When application working in forground and receving a message
     FirebaseMessaging.onMessage.listen((RemoteMessage message) async {
       RemoteNotification? notification = message.notification;
       AndroidNotification? android = message.notification?.android;
@@ -44,6 +49,7 @@ class _HomeScreenState extends State<HomeScreen> {
       }
     });
 
+    // When application is in background and Notification was received, This will trigger On click of that notification
     FirebaseMessaging.onMessageOpenedApp.listen((message) {
       final routeNameFromMessage = message.data["route"];
       Navigator.of(context).pushNamed(routeNameFromMessage);

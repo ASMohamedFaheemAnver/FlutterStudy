@@ -12,6 +12,7 @@ void main() async {
   runApp(FlutterNotificationApp());
 }
 
+// Perofrming action on application on background, Perofrming background jobs
 Future<void> backgroundHandler(RemoteMessage message) async {
   print(message.data.toString());
 }
