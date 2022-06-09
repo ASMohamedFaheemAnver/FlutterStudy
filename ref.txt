@@ -1,0 +1,4 @@
+# ToDo
+# Equatable custom object comparison (Ref this code)
+# https://github.com/comerc/flutter_idiomatic/blame/98cfbcd1b53d66dd492199b4f2b14dce1d3d0f97/lib/cubits/authentication.dart#L92
+# https://github.com/comerc/flutter_idiomatic/blob/main/lib/models/user.dart
